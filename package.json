@@ -2,15 +2,24 @@
   "name": "azin-language-support",
   "displayName": "Azin language support",
   "description": "This is an extension that adds syntax highlighting and icons for my own made language \"Azin\"",
-  "version": "0.0.1",
-  "engines": {
+  "version": "0.1.2",
+  "repository": 
+  {
+  "type": "git",
+  "url": "https://github.com/Alex12-Git200/Azin-Language-Support-VSCode"
+  },
+  "engines": 
+  {
     "vscode": "^1.108.1"
   },
-  "categories": [
+  "categories": 
+  [
     "Programming Languages"
   ],
-  "contributes": {
-    "languages": [
+  "contributes": 
+  {
+    "languages": 
+    [
       {
         "id": "azin",
         "aliases": ["Azin"],
@@ -18,7 +27,8 @@
         "configuration": "./language-configuration.json"
       }
     ],
-    "grammars": [
+    "grammars": 
+    [
       {
         "language": "azin",
         "scopeName": "source.azin",
