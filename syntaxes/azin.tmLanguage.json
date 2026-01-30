@@ -5,20 +5,20 @@
   "patterns": [
     { "include": "#comments" },
     { "include": "#controlKeywords" },
+    { "include": "#useKeyword" },
     { "include": "#types" },
     { "include": "#strings" },
     { "include": "#numbers" },
     { "include": "#functions" },
     { "include": "#modules" },
     { "include": "#atOperator" },
+    { "include": "#bangOperator" },
+    { "include": "#angleBlocks" },
     { "include": "#constants" }
   ],
-  "repository": 
-  {
-    "controlKeywords": 
-    {
-      "patterns": 
-      [
+  "repository": {
+    "controlKeywords": {
+      "patterns": [
         {
           "name": "keyword.control.azin",
           "match": "\\b(if|while|for|return)\\b"
@@ -26,10 +26,17 @@
       ]
     },
 
-    "types": 
-    {
-      "patterns": 
-      [
+    "useKeyword": {
+      "patterns": [
+        {
+          "name": "support.type.xazin",
+          "match": "\\buse\\b"
+        }
+      ]
+    },
+
+    "types": {
+      "patterns": [
         {
           "name": "storage.type.azin",
           "match": "\\b(int|string|bool|void)\\b"
@@ -37,13 +44,11 @@
       ]
     },
 
-    "strings": 
-    {
+    "strings": {
       "name": "string.quoted.double.azin",
       "begin": "\"",
       "end": "\"",
-      "patterns": 
-      [
+      "patterns": [
         {
           "name": "constant.character.escape.azin",
           "match": "\\\\."
@@ -51,10 +56,8 @@
       ]
     },
 
-    "numbers": 
-    {
-      "patterns": 
-      [
+    "numbers": {
+      "patterns": [
         {
           "name": "constant.numeric.azin",
           "match": "\\b\\d+\\b"
@@ -62,10 +65,8 @@
       ]
     },
 
-    "functions": 
-    {
-      "patterns": 
-      [
+    "functions": {
+      "patterns": [
         {
           "name": "entity.name.function.azin",
           "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b(?=@)"
@@ -73,10 +74,8 @@
       ]
     },
 
-    "modules": 
-    {
-      "patterns": 
-      [
+    "modules": {
+      "patterns": [
         {
           "name": "entity.name.namespace.azin",
           "match": "(?<=@)[a-zA-Z_][a-zA-Z0-9_]*"
@@ -84,10 +83,8 @@
       ]
     },
 
-    "atOperator": 
-    {
-      "patterns": 
-      [
+    "atOperator": {
+      "patterns": [
         {
           "name": "support.type.azin",
           "match": "@"
@@ -95,26 +92,55 @@
       ]
     },
 
-    "comments": 
-    {
-      "patterns": 
-      [
+    "bangOperator": {
+      "patterns": [
+        {
+          "name": "keyword.operator.bang.azin",
+          "match": "!"
+        }
+      ]
+    },
+
+    "angleBlocks": {
+      "patterns": [
+        {
+          "name": "entity.name.type.angle.azin",
+          "begin": "<",
+          "end": ">",
+          "beginCaptures": {
+            "0": { "name": "entity.name.type.angle.azin" }
+          },
+          "endCaptures": {
+            "0": { "name": "entity.name.type.angle.azin" }
+          },
+          "patterns": [
+            {
+              "name": "entity.name.type.angle.azin",
+              "match": "[^<>]+"
+            }
+          ]
+        }
+      ]
+    },
+
+
+
+    "comments": {
+      "patterns": [
         {
           "name": "comment.line.double-slash.azin",
           "match": "//.*$"
         }
       ]
     },
-    "constants": 
-    {
-      "patterns": 
-      [
+
+    "constants": {
+      "patterns": [
         {
           "name": "constant.language.boolean.azin",
           "match": "\\b(true|false)\\b"
         }
       ]
     }
-
   }
 }
